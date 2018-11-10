@@ -36,7 +36,7 @@ public class MessageController {
     @PutMapping("{messageId}")
     public ResponseEntity<?> updateMessage(@PathVariable("messageId") Message messageFromDb,
                                            @RequestBody Message message) {
-        BeanUtils.copyProperties(message, messageFromDb);
+        BeanUtils.copyProperties(message, messageFromDb, "id");
         Message updatedMessage = messageRepository.save(messageFromDb);
         return ResponseEntity.ok(updatedMessage);
     }
