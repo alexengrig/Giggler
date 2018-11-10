@@ -33,7 +33,7 @@ public class MessageController {
         return ResponseEntity.ok(message);
     }
 
-    @GetMapping("{messageId}")
+    @PutMapping("{messageId}")
     public ResponseEntity<?> updateMessage(@PathVariable("messageId") Message messageFromDb,
                                            @RequestBody Message message) {
         BeanUtils.copyProperties(message, messageFromDb);
